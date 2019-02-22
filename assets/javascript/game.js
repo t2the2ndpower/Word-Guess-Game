@@ -2,11 +2,11 @@
 
 //Ask users if they want to play the game
 
-confirm ("Do you want to play, 'Guess the Technique'?");
+confirm ("Do you want to play, 'Guess the Technique'?");//the index page should just be graphics, once player confirms go to the game play page
 
 
 
-alert ("Press any key to get started.");
+alert ("Press any key to get started.");//this should happen on the game play page
 
 var wins = 0;  // the number of times the user guesses correctly
 var loses = 0;  // the number of times the user guesses incorrectly
@@ -45,8 +45,8 @@ var gameAnswers = [
     {
         pctname: 'Marbling',
         pctpic: Image.src = "assets/images/marbling.jpg",
-        pctdesc: :"Marbling clay is an easy and very satisfying technique. Marble colours together, black with white, white with black (there is a difference) and white with tonal variations of one colour for different outcomes. There’s so much you can do once you have this skill perfected – which won’t take you long. The most important thing to remember when you’re marbling clay is not to over mix the colours. You don’t want to mix it into one colour! You do need a little mixing to create the streaks and gradients though so there’s a bit of trial and error at play here. Best thing to do? Pick up your clay and start experimenting!"
-    },
+        pctdesc: "Marbling clay is an easy and very satisfying technique. Marble colours together, black with white, white with black (there is a difference) and white with tonal variations of one colour for different outcomes. There’s so much you can do once you have this skill perfected – which won’t take you long. The most important thing to remember when you’re marbling clay is not to over mix the colours. You don’t want to mix it into one colour! You do need a little mixing to create the streaks and gradients though so there’s a bit of trial and error at play here. Best thing to do? Pick up your clay and start experimenting!"
+    }
 ];
 
 var keyPress = '';
