@@ -50,3 +50,5 @@ targetDiv.appendChild(newDiv);
 
 newDiv.setAttribute("class", "fancy");
 
+
+// $("#empty-div").html("<h1>Hello Everyone</h1>");
