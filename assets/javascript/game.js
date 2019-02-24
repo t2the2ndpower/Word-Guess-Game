@@ -66,7 +66,7 @@ I also had a mix of lower and upper case object properties from copying and past
         },
         {
             pctName: 'Image Transfer',
-            pctPic:"assets/images/image_transfer.jpg",
+            pctPic:"assets/images/image-transfer.jpg",
             pctDesc: "Polymer clay image transfer is a technique for taking pictures printed on a laser printer or photocopier and fusing that image to the surface of clay. Whether you're transferring a delicate floral pattern or your favorite cartoon character, this is an exciting, easy method that opens up endless possibilities for making jewelry and other decorative crafts.",
             pctTease: "This one is sooooooo very basic."
         },
@@ -78,7 +78,7 @@ I also had a mix of lower and upper case object properties from copying and past
         }
         ];
 
-    console.log(gameAnswers[0].pctName);     
+   // console.log(gameAnswers[compIdxItem].pctName);     
 
 
 // WORKING: Randomly generate a number to pass into the  randomGameAnswers var     
@@ -86,18 +86,23 @@ I also had a mix of lower and upper case object properties from copying and past
         var compIdxItem = Math.floor((Math.random() * gameAnswers.length));
     console.log("randomly generated index number is " + compIdxItem);
 
+    console.log(gameAnswers[compIdxItem].pctName);  
+
 
 
 //  WORKING: Randomly generated number successfully passes through to  randomGameAnsers var and returns a random item from the gameAnswers array of objects
 
-        var randomGameAnswers = gameAnswers[compIdxItem].pctName;
+       // var randomGameAnswers = gameAnswers[compIdxItem].pctName;
+    //console.log(randomGameAnswers);
+
+    var randomGameAnswers = gameAnswers[compIdxItem];
     console.log(randomGameAnswers);
 
 
 
 // WORKING: count the number of characters in a pctName
 
-        var pctNameChars = gameAnswers[0].pctName.length;
+        var pctNameChars = Math.floor(gameAnswers[compIdxItem].pctName.length);
     console.log(pctNameChars);
 
 
@@ -126,43 +131,37 @@ I also had a mix of lower and upper case object properties from copying and past
 
 
 
-// WORKING: show the gameplayers keystrokes 
+// sort of WORKING: show the gameplayers keystrokes (need to get them to appear in a row and not overwrite eachother)
 
         document.onkeypress = function (k){
 
         var playerKeyPress = k.key;
+
     console.log(playerKeyPress);
+
+        var allKeysPressed = [playerKeyPress];
+
+    console.log(allKeysPressed);
+
+        document.getElementById("userGuessChar").innerHTML = allKeysPressed;
+
         }
 
 
-
-//NOT WORKING:  put the playerKeyPress letters in the proper div
-
-        /*
-
-        //var w = document.getElementById("userGuessChar");
-
-        //= function (w) {
-
-        //var h = playerKeyPress.insertAdjacentText;
-        // h.insertAdjacentText(playerKeyPress + " My inserted text");
-        //}
-
-        //console.log(myFunction);
-
-        document.getElementById("userGuessChar").innerHTML += playerKeyPress;
-
-        var ugcUpdate = document.getElementById("userGuessChar");
-            ugcUpdate.innerText += playerKeyPress;
-
-            console.log(ugcUpdate);
-
+/*
+           var node = document.createElement("LI");                 // Create a <li> node
+           var textnode = document.createTextNode("Water");         // Create a text node
+           node.appendChild(textnode);                              // Append the text to <li>
+           document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList" 
 
 */
 
+
+
+
 // WORKING: calculate the number of guesses given per round.  It should be 2.5x the number of characters to be guessed 
 
-        var pctGuesAvail = pctNameChars * 2.5;
+        var pctGuesAvail = Math.floor(pctNameChars * 2.5);
 
     console.log(pctGuesAvail);
 
@@ -176,12 +175,12 @@ I also had a mix of lower and upper case object properties from copying and past
 
 
 // has game player guessed it correctly within the given guess allotment? (this is just some copy pasted code for a while loop)
-
+/*
         while (i < 10) {
             text += "The number is " + i;
             i++;
         }
-
+*/
 // WORKING: display wins variable in the html page
 
         var winsUpdate = document.getElementById("wins")
@@ -196,22 +195,22 @@ I also had a mix of lower and upper case object properties from copying and past
 // WORKING: Display obj infor in the html page
 
         var pctTitleUpdate = document.getElementById("mstTitle");
-            pctTitleUpdate.innerHTML = gameAnswers[0].pctName;
+            pctTitleUpdate.innerHTML = gameAnswers[compIdxItem].pctName;
 
     console.log(pctTitleUpdate);
 
         var pctDescUpdate = document.getElementById("mstDesc");
-            pctDescUpdate.innerHTML = gameAnswers[0].pctDesc;
+            pctDescUpdate.innerHTML = gameAnswers[compIdxItem].pctDesc;
 
     console.log(pctDescUpdate);
 
         var pctPicUpdate = document.getElementById("mstPic");
-            pctPicUpdate.src = gameAnswers[0].pctPic;
+            pctPicUpdate.src = gameAnswers[compIdxItem].pctPic;
 
     console.log(pctPicUpdate);
 
         var pctTeaseUpdate = document.getElementById("questionTease");
-            pctTeaseUpdate.innerHTML = gameAnswers[0].pctTease;
+            pctTeaseUpdate.innerHTML = gameAnswers[compIdxItem].pctTease;
             
     console.log(pctTeaseUpdate);
 
