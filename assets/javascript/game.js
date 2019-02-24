@@ -113,8 +113,15 @@ I also had a mix of lower and upper case object properties from copying and past
 
     console.log(pctNameBlanks)
 
-// show the underscores in the html
+// WORKING: show the underscores in the html
 
+        var agpUpdate = document.getElementById("activeGamePlay");
+            agpUpdate.innerHTML = pctNameBlanks;
+
+    console.log(agpUpdate);
+
+
+// change the underscores to correctly guessed letters
 
 
 
@@ -175,9 +182,18 @@ I also had a mix of lower and upper case object properties from copying and past
             i++;
         }
 
+// WORKING: display wins variable in the html page
+
+        var winsUpdate = document.getElementById("wins")
+            winsUpdate.innerHTML = wins;
+
+// WORKING: display losses variable in the html page
+
+        var lossesUpdate = document.getElementById("losses")
+            lossesUpdate.innerHTML = loses;
 
 
-// WORKING: Display results in the html page
+// WORKING: Display obj infor in the html page
 
         var pctTitleUpdate = document.getElementById("mstTitle");
             pctTitleUpdate.innerHTML = gameAnswers[0].pctName;
@@ -205,12 +221,15 @@ I also had a mix of lower and upper case object properties from copying and past
             hideUpdate.innerHTML = "";    
 
 
+// Hide congrats message
 
 
 
 
 
-// Begin Psudo Code 
+
+
+// Begin Psudo Code **********************************
        
 
 // on first key press generate a random index number and hold it in a variable to use as the first index item to guess
