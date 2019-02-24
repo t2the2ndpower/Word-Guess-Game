@@ -1,32 +1,24 @@
 // My cool crafty guess game.
 
-//Ask users if they want to play the game
+// Game Variables (wip)
 
-//confirm ("Do you want to play, 'Guess the Technique'?");//the index page should just be graphics, once player confirms go to the game play page
+        var wins = 0;  // the number of times the user guesses correctly
 
+        var loses = 0;  // the number of times the user guesses incorrectly
 
+        var initKeyPress = Math.floor(Math.random()*4); // the inital key press to get the game started
 
-//alert ("Press any key to get started.");//this should happen on the game play page
+        var playerKeyPress; // all of the keypresses the player presses during a single guess. This needs to be cleared out after a successfull guess or player has run out of attempts.
 
-            var wins = 0;  // the number of times the user guesses correctly
+        var gameRound; // may not be needed, but, this variable will hold the current game round index (is this round 1, 2, 3 ,4 etc)
 
-            var loses = 0;  // the number of times the user guesses incorrectly
+        //var pctname = gameAnswer0.pctname;
 
-            var initKeyPress = Math.floor(Math.random()*4); // the inital key press to get the game started
+        //var pctpic = gameAnswers[0].pctpic;
 
-            var playerKeyPress = ''; // all of the keypresses the player presses during a single guess. This needs to be cleared out after a successfull guess or player has run out of attempts.
+        //initKeyPress = var randomGameAnswers = gameAnswers[compIndexItem].pctname;
 
-            var gameRound; // may not be needed, but, this variable will hold the current game round index (is this round 1, 2, 3 ,4 etc)
-
-            //var pctname = gameAnswer0.pctname;
-
-            //var pctpic = gameAnswers[0].pctpic;
-
-            //initKeyPress = var randomGameAnswers = gameAnswers[compIndexItem].pctname;
-
-            //var randomGameAnswers = gameAnswers[compIndexItem].pctname;
-
-
+        //var randomGameAnswers = gameAnswers[compIndexItem].pctname;
 
 
 /*            
@@ -41,132 +33,136 @@ I also had a mix of lower and upper case object properties from copying and past
 
 */
 
-            var gameAnswers = [
-                {
-                    pctName: 'Mica Shift',
-                    pctPic:  "assets/images/mica.jpg",
-                    pctDesc:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-                    pctTease: "Are you ready to give up yet?"
-                },
-                {
-                    pctName: 'Skinner Blend',
-                    pctPic: "assets/images/skinner.jpg",
-                    pctDesc:"Color gradients are great for giving depth and visual interest to any art piece. Judith Skinner is a hero to literally countless of clayers for her incredible discovery - how to use the pasta machine to easily create ramped color gradients. That's what a Skinner Blend is - using the pasta machine to produce a ramped or smooth color transition gradient. In the illustration to the right, that first drawing with the blue and white triangles may help you understand why the Skinner blend technique works the way it does. The ratio of the two colors as you go from left to right changes.",
-                    pctTease: "This one is a classic.  If you don't know this you can quit now. ijs."
-                },
-                {
-                    pctName: 'Cane',
-                    pctPic: "assets/images/cane.jpg",
-                    pctDesc: "A cane is the end picture you create with solid colors of. polymer clay in a long tube that can be sliced off and used on various projects. The making of a cane is the Millefiori style used with glass.",
-                    pctTease: "Are you ready to give up NOW?!?!?"
-                },
-                {
-                    pctName: 'Mokume Gane',
-                    pctPic: "assets/images/mokume.jpg",
-                    pctDesc: "Mokume Gane is a traditional Japanese method for laminating various colors of metals together and manipulated them to create patterns that resemble wood patterns. Polymer clay lends itself perfectly to creating patterns from layers of oven-bake clay, manipulating them and removing slices. Layers of clay are manipulated with rubber stamps, texture sheets, needle tools, balls of clay strategically placed under the stack and found objects. Gold, silver or copper leaf may be added between the layers of clay for some very interesting results.",
-                    pctTease: "What, You don't speak Japanese?  Slacker."
-                },
-                {
-                    pctName: 'Sutton Slice',
-                    pctPic: "assets/images/sutton.jpg",
-                    pctDesc: "This 3 dimensional polymer clay technique was developed around 20 years ago by polymer clay artist Pete Sutton. The first time I saw it done, was around 10 years ago by well known polymer clay artist Lisa Pavelka. It is one of those techniques that is in-the-commons and is done and taught by many people in our niche. The Sutton Slice is one of those techniques that is simple in theory, but can be tricky to do well. ",
-                    pctTease: "You're probably gonna hafta Google this one, LOL!"
-                },
-                {
-                    pctName: 'Image Transfer',
-                    pctPic:"assets/images/image_transfer.jpg",
-                    pctDesc: "Polymer clay image transfer is a technique for taking pictures printed on a laser printer or photocopier and fusing that image to the surface of clay. Whether you're transferring a delicate floral pattern or your favorite cartoon character, this is an exciting, easy method that opens up endless possibilities for making jewelry and other decorative crafts.",
-                    pctTease: "This one is sooooooo very basic."
-                },
-                {
-                    pctName: 'Marbling',
-                    pctPic: "assets/images/marbling.jpg",
-                    pctDesc: "Marbling clay is an easy and very satisfying technique. Marble colours together, black with white, white with black (there is a difference) and white with tonal variations of one colour for different outcomes. There’s so much you can do once you have this skill perfected – which won’t take you long. The most important thing to remember when you’re marbling clay is not to over mix the colours. You don’t want to mix it into one colour! You do need a little mixing to create the streaks and gradients though so there’s a bit of trial and error at play here. Best thing to do? Pick up your clay and start experimenting!",
-                    pctTease: "Hint, you have this in your kitchen.  IF you have nice kitchen counters."
-                }
-            ];
+        var gameAnswers = [
+        {
+            pctName: 'Mica Shift',
+            pctPic:  "assets/images/mica.jpg",
+            pctDesc:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
+            pctTease: "Are you ready to give up yet?"
+        },
+        {
+            pctName: 'Skinner Blend',
+            pctPic: "assets/images/skinner.jpg",
+            pctDesc:"Color gradients are great for giving depth and visual interest to any art piece. Judith Skinner is a hero to literally countless of clayers for her incredible discovery - how to use the pasta machine to easily create ramped color gradients. That's what a Skinner Blend is - using the pasta machine to produce a ramped or smooth color transition gradient. In the illustration to the right, that first drawing with the blue and white triangles may help you understand why the Skinner blend technique works the way it does. The ratio of the two colors as you go from left to right changes.",
+            pctTease: "This one is a classic.  If you don't know this you can quit now. ijs."
+        },
+        {
+            pctName: 'Cane',
+            pctPic: "assets/images/cane.jpg",
+            pctDesc: "A cane is the end picture you create with solid colors of. polymer clay in a long tube that can be sliced off and used on various projects. The making of a cane is the Millefiori style used with glass.",
+            pctTease: "Are you ready to give up NOW?!?!?"
+        },
+        {
+            pctName: 'Mokume Gane',
+            pctPic: "assets/images/mokume.jpg",
+            pctDesc: "Mokume Gane is a traditional Japanese method for laminating various colors of metals together and manipulated them to create patterns that resemble wood patterns. Polymer clay lends itself perfectly to creating patterns from layers of oven-bake clay, manipulating them and removing slices. Layers of clay are manipulated with rubber stamps, texture sheets, needle tools, balls of clay strategically placed under the stack and found objects. Gold, silver or copper leaf may be added between the layers of clay for some very interesting results.",
+            pctTease: "What, You don't speak Japanese?  Slacker."
+        },
+        {
+            pctName: 'Sutton Slice',
+            pctPic: "assets/images/sutton.jpg",
+            pctDesc: "This 3 dimensional polymer clay technique was developed around 20 years ago by polymer clay artist Pete Sutton. The first time I saw it done, was around 10 years ago by well known polymer clay artist Lisa Pavelka. It is one of those techniques that is in-the-commons and is done and taught by many people in our niche. The Sutton Slice is one of those techniques that is simple in theory, but can be tricky to do well. ",
+            pctTease: "You're probably gonna hafta Google this one, LOL!"
+        },
+        {
+            pctName: 'Image Transfer',
+            pctPic:"assets/images/image_transfer.jpg",
+            pctDesc: "Polymer clay image transfer is a technique for taking pictures printed on a laser printer or photocopier and fusing that image to the surface of clay. Whether you're transferring a delicate floral pattern or your favorite cartoon character, this is an exciting, easy method that opens up endless possibilities for making jewelry and other decorative crafts.",
+            pctTease: "This one is sooooooo very basic."
+        },
+        {
+            pctName: 'Marbling',
+            pctPic: "assets/images/marbling.jpg",
+            pctDesc: "Marbling clay is an easy and very satisfying technique. Marble colours together, black with white, white with black (there is a difference) and white with tonal variations of one colour for different outcomes. There’s so much you can do once you have this skill perfected – which won’t take you long. The most important thing to remember when you’re marbling clay is not to over mix the colours. You don’t want to mix it into one colour! You do need a little mixing to create the streaks and gradients though so there’s a bit of trial and error at play here. Best thing to do? Pick up your clay and start experimenting!",
+            pctTease: "Hint, you have this in your kitchen.  IF you have nice kitchen counters."
+        }
+        ];
 
-      console.log(gameAnswers[0].pctName);     
+    console.log(gameAnswers[0].pctName);     
 
 
 // WORKING: Randomly generate a number to pass into the  randomGameAnswers var     
 
-    var compIdxItem = Math.floor((Math.random() * gameAnswers.length));
-      console.log("randomly generated index number is " + compIdxItem);
+        var compIdxItem = Math.floor((Math.random() * gameAnswers.length));
+    console.log("randomly generated index number is " + compIdxItem);
 
 
 
 //  WORKING: Randomly generated number successfully passes through to  randomGameAnsers var and returns a random item from the gameAnswers array of objects
 
-    var randomGameAnswers = gameAnswers[compIdxItem].pctName;
-        console.log(randomGameAnswers);
+        var randomGameAnswers = gameAnswers[compIdxItem].pctName;
+    console.log(randomGameAnswers);
 
 
 
 // WORKING: count the number of characters in a pctName
 
-var pctNameChars = gameAnswers[0].pctName.length;
-                console.log(pctNameChars);
+        var pctNameChars = gameAnswers[0].pctName.length;
+    console.log(pctNameChars);
 
 
 
 // WORKING: create a sting of underscores based on the number kept pctNameChars that represents the number of characters to be guessed
 
-var pctNameBlanks = "";
-var i;
-    
-    for (i = 1; i < pctNameChars+1; i++) {
-    pctNameBlanks += " ____  " + i;
-}
+        var pctNameBlanks = "";
+        var i;
+            
+            for (i = 1; i < pctNameChars+1; i++) {
+            pctNameBlanks += " ____  " + i;
+        }
 
     console.log(pctNameBlanks)
+
+// show the underscores in the html
+
+
 
 
 
 // WORKING: show the gameplayers keystrokes 
 
-document.onkeypress = function (k){
+        document.onkeypress = function (k){
 
- var playerKeyPress = k.key;
-  console.log(playerKeyPress);
-}
+        var playerKeyPress = k.key;
+    console.log(playerKeyPress);
+        }
 
 
 
 //NOT WORKING:  put the playerKeyPress letters in the proper div
 
-/*
+        /*
 
-//var w = document.getElementById("userGuessChar");
+        //var w = document.getElementById("userGuessChar");
 
-//= function (w) {
+        //= function (w) {
 
-//var h = playerKeyPress.insertAdjacentText;
-// h.insertAdjacentText(playerKeyPress + " My inserted text");
-//}
+        //var h = playerKeyPress.insertAdjacentText;
+        // h.insertAdjacentText(playerKeyPress + " My inserted text");
+        //}
 
-//console.log(myFunction);
+        //console.log(myFunction);
 
-document.getElementById("userGuessChar").innerHTML += playerKeyPress;
+        document.getElementById("userGuessChar").innerHTML += playerKeyPress;
 
-var ugcUpdate = document.getElementById("userGuessChar");
-    ugcUpdate.innerText += playerKeyPress;
+        var ugcUpdate = document.getElementById("userGuessChar");
+            ugcUpdate.innerText += playerKeyPress;
 
-    console.log(ugcUpdate);
+            console.log(ugcUpdate);
 
 
 */
 
 // WORKING: calculate the number of guesses given per round.  It should be 2.5x the number of characters to be guessed 
 
-var pctGuesAvail = pctNameChars * 2.5;
+        var pctGuesAvail = pctNameChars * 2.5;
 
-console.log(pctGuesAvail);
+    console.log(pctGuesAvail);
 
 // WORKING: show pctGuessAvail in html
 
-var keyStrokeUpdate = document.getElementById("remainingKeystrokes");
-    keyStrokeUpdate.innerHTML = pctGuesAvail;
+        var keyStrokeUpdate = document.getElementById("remainingKeystrokes");
+            keyStrokeUpdate.innerHTML = pctGuesAvail;
 
     console.log(keyStrokeUpdate);
 
@@ -174,61 +170,40 @@ var keyStrokeUpdate = document.getElementById("remainingKeystrokes");
 
 // has game player guessed it correctly within the given guess allotment? (this is just some copy pasted code for a while loop)
 
-while (i < 10) {
-    text += "The number is " + i;
-    i++;
-  }
+        while (i < 10) {
+            text += "The number is " + i;
+            i++;
+        }
 
 
 
 // WORKING: Display results in the html page
 
-var pctTitleUpdate = document.getElementById("mstTitle");
-    pctTitleUpdate.innerHTML = gameAnswers[0].pctName;
+        var pctTitleUpdate = document.getElementById("mstTitle");
+            pctTitleUpdate.innerHTML = gameAnswers[0].pctName;
 
     console.log(pctTitleUpdate);
 
-var pctDescUpdate = document.getElementById("mstDesc");
-    pctDescUpdate.innerHTML = gameAnswers[0].pctDesc;
+        var pctDescUpdate = document.getElementById("mstDesc");
+            pctDescUpdate.innerHTML = gameAnswers[0].pctDesc;
 
     console.log(pctDescUpdate);
 
-var pctPicUpdate = document.getElementById("mstPic");
-    pctPicUpdate.src = gameAnswers[0].pctPic;
+        var pctPicUpdate = document.getElementById("mstPic");
+            pctPicUpdate.src = gameAnswers[0].pctPic;
 
     console.log(pctPicUpdate);
 
-var pctTeaseUpdate = document.getElementById("questionTease");
-    pctTeaseUpdate.innerHTML = gameAnswers[0].pctTease;
-    
+        var pctTeaseUpdate = document.getElementById("questionTease");
+            pctTeaseUpdate.innerHTML = gameAnswers[0].pctTease;
+            
     console.log(pctTeaseUpdate);
 
 // WORKING: Hide 'Thanks for Playing' message till game is over    
 
-var hideUpdate = document.getElementById("thanks");
-    hideUpdate.innerHTML = "";    
+        var hideUpdate = document.getElementById("thanks");
+            hideUpdate.innerHTML = "";    
 
-//
-
-//console.log(guessSolved);
-
-
-
-// get object properties and display them in the page
-
-
-
-/* 
-
-if( gameAnswers[0]) {
-
-    var title = document.getElementById("mstTitle");
-
-        title = pctName(gameAnswers);
-
-
-}
-*/
 
 
 
@@ -242,7 +217,7 @@ if( gameAnswers[0]) {
 
 // present the related Object properties associated with the previously randomly generated index number
 
-// create a line of underscores that match the number of charicters of the name randomly guessed technique value.
+// create a line of underscores that match the number of characters of the name randomly guessed technique value.
 
 // on subsequent key presses log them in an array variable, 
 
