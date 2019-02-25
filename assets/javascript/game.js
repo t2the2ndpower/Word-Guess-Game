@@ -136,7 +136,8 @@ I also had a mix of lower and upper case object properties from copying and past
 //WORKING: capturing the key press and showing them on screen albeit one at a time
 
 //var playerKeyPress;
-var allKeysPressed = [];
+
+/* var allKeysPressed = [];
 
         document.onkeypress = function (k){
 
@@ -157,12 +158,68 @@ var allKeysPressed = [];
 
 //allKeysPressed.push(playerKeyPress);        
 document.getElementById("userGuessChar").innerHTML =allKeysPressed;
+*/
+
+//WORKING:  Turn the randomly selected game answer name into an indexed array
+    
+    var gameAnswerString = gameAnswers[compIdxItem].pctName.split('');
+
+
+
+console.log("these are all of the characters of the randomly generated answer " + gameAnswerString);
+
+
+//WORKING:  Create an input area that displays the gameplayers keypresses
+
+const keyPress = document.querySelector("input");
+const log = document.getElementById("show");
+
+keyPress.onkeydown = logKey;
+
+// Not working:  having the guessed keystrokes decrement the total number of guesses available
+
+function logKey(e) {
+
+    if(keyPress != gameAnswers[compIdxItem].pctName[0,1,2,3,4,5]){
+        log.append(e.key);
+
+    }
+      
+    else pctGuesAvail -= 1;
+
+}
+
+//search a string for a value or position
 
 /*
 
+More code snippets and ideas
+********************************
+
+*
+function myFunction() {
+    var str = "Visit W3Schools!"; 
+    var n = str.search("W3Schools");
+    document.getElementById("demo").innerHTML = n;
+  }
+
+*/
+
+/*
+
+split string values
+
+"Hello world!".split('')
+["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
 
 
-test
+Replace String Values
+
+var str = "Visit Microsoft!";
+var res = str.replace("Microsoft", "W3Schools");
+
+********************************
+
             From JJ...
 
             const input = document.querySelector('input');
