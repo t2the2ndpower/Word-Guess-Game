@@ -133,28 +133,95 @@ I also had a mix of lower and upper case object properties from copying and past
 
 // sort of WORKING: show the gameplayers keystrokes (need to get them to appear in a row and not overwrite eachother)
 
+//WORKING: capturing the key press and showing them on screen albeit one at a time
+
+var playerKeyPress;
+var allKeysPressed = [];
+
         document.onkeypress = function (k){
 
-        var playerKeyPress = k.key;
+        var playerKeyPress = k;
 
     console.log(playerKeyPress);
 
-        var allKeysPressed = [playerKeyPress];
+        allKeysPressed.push(playerKeyPress);
+
+        //var allKeysPressed = [playerKeyPress];
+           // allKeysPressed.push(playerKeyPress);
 
     console.log(allKeysPressed);
 
-        document.getElementById("userGuessChar").innerHTML = allKeysPressed;
+        //document.getElementById("userGuessChar").innerHTML = allKeysPressed;
 
         }
 
+//allKeysPressed.push(playerKeyPress);        
+document.getElementById("userGuessChar").innerHTML = playerKeyPress;
 
 /*
+
+            From JJ...
+
+            arrayOfKeys = [];
+
+            document.onkeypress = function (k){
+            var playerKeyPress = k;
+            console.log(playerKeyPress);
+
+	        //add keypress to array
+	        arrayOfKeys.push(playerKeyPress);
+            }
+
+
+
            var node = document.createElement("LI");                 // Create a <li> node
            var textnode = document.createTextNode("Water");         // Create a text node
            node.appendChild(textnode);                              // Append the text to <li>
            document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList" 
 
+************************************
+going to try putting all of this in a 'while' loop: didn't work
+************************************
+
+
+
+var pctGuesAvail = Math.floor(pctNameChars * 2.5);
+
+console.log(pctGuesAvail);
+
+        var i = 1
+
+        while (i < pctGuesAvail) {
+
+            document.onkeypress = function (k){
+
+                var playerKeyPress = k.key;
+
+//                var allKeysPressed;
+
+//                allKeysPressed.push(playerKeyPress);
+
+                console.log(playerKeyPress);
+
+//                document.getElementById("userGuessChar").innerHTML = allKeysPressed;
+            }
+
+            i++;
+
+        }
+
+**************************************
+going to try a for loop 
+**************************************
 */
+
+
+for (var i = 1; i < 5; i++) {
+
+
+    console.log("this is my loop, ");
+
+}
 
 
 
