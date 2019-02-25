@@ -38,47 +38,47 @@ I also had a mix of lower and upper case object properties from copying and past
             pctName: 'Mica Shift',
             pctPic:  "assets/images/mica.jpg",
             pctDesc:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-            pctTease: "Are you ready to give up yet?"
+            pctTease: "Are you ready to give up yet?",
         },
         {
-            pctName: 'Skinner Blend',
+            pctName:'Skinner Blend',
             pctPic: "assets/images/skinner.jpg",
             pctDesc:"Color gradients are great for giving depth and visual interest to any art piece. Judith Skinner is a hero to literally countless of clayers for her incredible discovery - how to use the pasta machine to easily create ramped color gradients. That's what a Skinner Blend is - using the pasta machine to produce a ramped or smooth color transition gradient. In the illustration to the right, that first drawing with the blue and white triangles may help you understand why the Skinner blend technique works the way it does. The ratio of the two colors as you go from left to right changes.",
-            pctTease: "This one is a classic.  If you don't know this you can quit now. ijs."
+            pctTease: "This one is a classic.  If you don't know this you can quit now. ijs.",
         },
         {
             pctName: 'Cane',
             pctPic: "assets/images/cane.jpg",
             pctDesc: "A cane is the end picture you create with solid colors of. polymer clay in a long tube that can be sliced off and used on various projects. The making of a cane is the Millefiori style used with glass.",
-            pctTease: "Are you ready to give up NOW?!?!?"
+            pctTease: "Are you ready to give up NOW?!?!?",
         },
         {
             pctName: 'Mokume Gane',
             pctPic: "assets/images/mokume.jpg",
             pctDesc: "Mokume Gane is a traditional Japanese method for laminating various colors of metals together and manipulated them to create patterns that resemble wood patterns. Polymer clay lends itself perfectly to creating patterns from layers of oven-bake clay, manipulating them and removing slices. Layers of clay are manipulated with rubber stamps, texture sheets, needle tools, balls of clay strategically placed under the stack and found objects. Gold, silver or copper leaf may be added between the layers of clay for some very interesting results.",
-            pctTease: "What, You don't speak Japanese?  Slacker."
+            pctTease: "What, You don't speak Japanese?  Slacker.",
         },
         {
             pctName: 'Sutton Slice',
             pctPic: "assets/images/sutton.jpg",
             pctDesc: "This 3 dimensional polymer clay technique was developed around 20 years ago by polymer clay artist Pete Sutton. The first time I saw it done, was around 10 years ago by well known polymer clay artist Lisa Pavelka. It is one of those techniques that is in-the-commons and is done and taught by many people in our niche. The Sutton Slice is one of those techniques that is simple in theory, but can be tricky to do well. ",
-            pctTease: "You're probably gonna hafta Google this one, LOL!"
+            pctTease: "You're probably gonna hafta Google this one, LOL!",
         },
         {
             pctName: 'Image Transfer',
             pctPic:"assets/images/image-transfer.jpg",
             pctDesc: "Polymer clay image transfer is a technique for taking pictures printed on a laser printer or photocopier and fusing that image to the surface of clay. Whether you're transferring a delicate floral pattern or your favorite cartoon character, this is an exciting, easy method that opens up endless possibilities for making jewelry and other decorative crafts.",
-            pctTease: "This one is sooooooo very basic."
+            pctTease: "This one is sooooooo very basic.",
         },
         {
             pctName: 'Marbling',
             pctPic: "assets/images/marbling.jpg",
             pctDesc: "Marbling clay is an easy and very satisfying technique. Marble colours together, black with white, white with black (there is a difference) and white with tonal variations of one colour for different outcomes. There’s so much you can do once you have this skill perfected – which won’t take you long. The most important thing to remember when you’re marbling clay is not to over mix the colours. You don’t want to mix it into one colour! You do need a little mixing to create the streaks and gradients though so there’s a bit of trial and error at play here. Best thing to do? Pick up your clay and start experimenting!",
-            pctTease: "Hint, you have this in your kitchen.  IF you have nice kitchen counters."
+            pctTease: "Hint, you have this in your kitchen.  IF you have nice kitchen counters.",
         }
         ];
 
-   // console.log(gameAnswers[compIdxItem].pctName);     
+   // console.log(gameAnswers[compIdxItem].pctNArray);     
 
 
 // WORKING: Randomly generate a number to pass into the  randomGameAnswers var     
@@ -86,7 +86,9 @@ I also had a mix of lower and upper case object properties from copying and past
         var compIdxItem = Math.floor((Math.random() * gameAnswers.length));
     console.log("randomly generated index number is " + compIdxItem);
 
-    console.log(gameAnswers[compIdxItem].pctName);  
+    console.log(gameAnswers[compIdxItem].pctName.split([]));  
+
+ 
 
 
 
@@ -127,6 +129,18 @@ I also had a mix of lower and upper case object properties from copying and past
 
 
 // change the underscores to correctly guessed letters
+
+/*
+function changeLetters(){
+
+    if ( pctNameChars = )
+
+     var agpLetters = document.getElementById("activeGamePlay");
+        agpLetters.innerHTML = 
+
+}
+*/
+       
 
 
 
