@@ -160,6 +160,9 @@ document.getElementById("userGuessChar").innerHTML =allKeysPressed;
 
 /*
 
+
+
+test
             From JJ...
 
             const input = document.querySelector('input');
