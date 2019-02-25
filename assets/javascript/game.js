@@ -135,7 +135,7 @@ I also had a mix of lower and upper case object properties from copying and past
 
 //WORKING: capturing the key press and showing them on screen albeit one at a time
 
-var playerKeyPress;
+//var playerKeyPress;
 var allKeysPressed = [];
 
         document.onkeypress = function (k){
@@ -156,12 +156,22 @@ var allKeysPressed = [];
         }
 
 //allKeysPressed.push(playerKeyPress);        
-document.getElementById("userGuessChar").innerHTML = playerKeyPress;
+document.getElementById("userGuessChar").innerHTML =allKeysPressed;
 
 /*
 
             From JJ...
 
+            const input = document.querySelector('input');
+            const log = document.getElementById('show');
+
+            input.onkeydown = logKey;
+
+            function logKey(e) {
+            log.append(e.key);
+
+
+********************************
             arrayOfKeys = [];
 
             document.onkeypress = function (k){
@@ -171,7 +181,7 @@ document.getElementById("userGuessChar").innerHTML = playerKeyPress;
 	        //add keypress to array
 	        arrayOfKeys.push(playerKeyPress);
             }
-
+*********************************
 
 
            var node = document.createElement("LI");                 // Create a <li> node
