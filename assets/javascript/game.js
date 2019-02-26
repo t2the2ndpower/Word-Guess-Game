@@ -111,11 +111,12 @@ I also had a mix of lower and upper case object properties from copying and past
 
 // WORKING: create a sting of underscores based on the number kept pctNameChars that represents the number of characters to be guessed
 
-        var pctNameBlanks = "";
+
+        
+        var pctNameBlanks = [];
         var i;
-            
-            for (i = 1; i < pctNameChars+1; i++) {
-            pctNameBlanks += " ____  " + i;
+            for (i = 0; i < gameAnswers[compIdxItem].pctName.length; i++) {
+            pctNameBlanks[i] = "_";
         }
 
     console.log(pctNameBlanks)
@@ -175,8 +176,8 @@ document.getElementById("userGuessChar").innerHTML =allKeysPressed;
 */
 
 //WORKING:  Turn the randomly selected game answer name into an indexed array
-    
-    var gameAnswerString = gameAnswers[compIdxItem].pctName.split('');
+    console.log(gameAnswers[compIdxItem].pctName.toLowerCase())
+    var gameAnswerString = gameAnswers[compIdxItem].pctName.toLowerCase().split('');
 
 
 
@@ -190,18 +191,48 @@ const log = document.getElementById("show");
 
 keyPress.onkeydown = logKey;
 
+
+
 // Not working:  having the guessed keystrokes decrement the total number of guesses available
 
 function logKey(e) {
 
-    if(keyPress != gameAnswers[compIdxItem].pctName[0,1,2,3,4,5]){
-        log.append(e.key);
+    log.append(e.key);
+    pctGuesAvail --;
+    console.log(pctGuesAvail);
+   keyStrokeUpdate.innerHTML = pctGuesAvail;
 
+   for(var i = 0; i<gameAnswerString.length; i++){
+
+    console.log("this is the letter!");
+
+        if (e.key == gameAnswerString[i])  {
+
+            pctNameBlanks[i] = e.key;
+            console.log("this is the letter!", gameAnswerString[i]);
+        }
+
+   }
+// join the newly updated pctBlanks var into a string
+
+    pctNameBlanks.join("")
+    console.log(pctNameBlanks.join(""))
+    agpUpdate.innerHTML = pctNameBlanks.join("");
+
+    if ( pctNameBlanks.join("") === gameAnswers[compIdxItem].pctName.toLowerCase()) {
+        console.log("youWIN!");
     }
-      
-    else pctGuesAvail -= 1;
-
 }
+
+    // if(keyPress != gameAnswers[compIdxItem].pctName[0,1,2,3,4,5]){
+    
+
+    // }
+     
+    // else pctGuesAvail -= 1;
+
+
+
 
 //search a string for a value or position
 
