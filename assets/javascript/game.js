@@ -1,5 +1,17 @@
 // My cool crafty guess game.  aka "A Festival of Console Logs!"
 
+
+
+// (Game Notes:  Game is not yet complete and the following need to be added)
+//  - hide the answers but keep the hint visible
+//  - on button press call the random index function and generate another hidden answer
+//  - remove the keypresses outside of the input box
+//  - total the wins and losses
+//  - hide the congratulatory message
+//  - update the congratulatory message
+
+
+
 // Game Variables (wip)
 
         var wins = 0;  // the number of times the user guesses correctly
