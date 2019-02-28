@@ -32,6 +32,10 @@
 
         //var randomGameAnswers = gameAnswers[compIndexItem].pctname;
 
+        // var winsUpdate = document.getElementById("wins")
+
+        // winsUpdate.innerHTML = wins;
+
 
 /*            
 **************************************
@@ -256,11 +260,18 @@ document.getElementById("userGuessChar").innerHTML =allKeysPressed;
 
                 if ( pctNameBlanks.join("") === gameAnswers[compIdxItem].pctName.toLowerCase()) {
 
+                  var showBlock = document.getElementById("column-1").style.display="block";
+                       // showBlock = display:block
+
+                       wins++;
+                       document.getElementById("wins").innerHTML=wins;
+                   }
     console.log("youWIN!");
+
 
                 }
 
-        }
+       // }
 
    
 
@@ -409,7 +420,7 @@ going to try a for loop
             lossesUpdate.innerHTML = loses;
 
 
-// WORKING: Display obj infor in the html page
+// WORKING: Display obj info in the html page
 
         var pctTitleUpdate = document.getElementById("mstTitle");
 
